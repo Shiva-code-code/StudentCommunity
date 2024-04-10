@@ -1,32 +1,26 @@
-import {
-  useQuery,
-  useMutation,
-  useQueryClient,
-  useInfiniteQuery,
-} from "@tanstack/react-query";
-
+import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { QUERY_KEYS } from "@/lib/react-query/queryKeys";
-import {
-  createUserAccount,
-  signInAccount,
-  getCurrentUser,
-  signOutAccount,
-  getUsers,
-  createPost,
-  getPostById,
-  updatePost,
-  getUserPosts,
-  deletePost,
-  likePost,
-  getUserById,
-  updateUser,
-  getRecentPosts,
-  searchPosts,
-  savePost,
-  deleteSavedPost,
-  getInfinitePosts,
-} from "@/lib/appwrite/api";
 import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
+import { 
+  createUserAccount, 
+  signInAccount, 
+  getCurrentUser, 
+  signOutAccount, 
+  getUsers, 
+  createPost, 
+  getPostById, 
+  updatePost, 
+  getUserPosts, 
+  deletePost, 
+  likePost, 
+  getUserById, 
+  updateUser, 
+  getRecentPosts, 
+  searchPosts, 
+  savePost, 
+  deleteSavedPost, 
+} from "@/lib/appwrite/api";
+
 
 // ============================================================
 // AUTH QUERIES
@@ -40,8 +34,7 @@ export const useCreateUserAccount = () => {
 
 export const useSignInAccount = () => {
   return useMutation({
-    mutationFn: (user: { email: string; password: string }) =>
-      signInAccount(user),
+    mutationFn: (user: { email: string; password: string }) => signInAccount(user),
   });
 };
 
@@ -101,18 +94,18 @@ export const useGetUserPosts = (userId?: string) => {
   });
 };
 
-export const useGetPosts = () => {
-  return useInfiniteQuery({
-    queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
-    queryFn: getInfinitePosts,
-    getNextPageParam: (lastPage) => {
-      if(lastPage && lastPage.documents.length ===0 ) return null;
+// export const useGetPosts = () => {
+//   return useInfiniteQuery({
+//     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
+//     queryFn: getInfinitePosts,
+//     getNextPageParam: (lastPage) => {
+//       if(lastPage && lastPage.documents.length ===0 ) return null;
 
-      const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
-      return lastId;
-    }
-  });
-};
+//       const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
+//       return lastId;
+//     }
+//   });
+// };
 
 export const useUpdatePost = () => {
   const queryClient = useQueryClient();
