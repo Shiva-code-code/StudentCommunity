@@ -37,6 +37,7 @@ Home Page:
   The home page serves as the central hub for student interaction and information access. It provides features that encourage users to post, connect, and discover valuable resources.
 
 People Connect Page - Building Relationships
+![alt text](images/People.png)
       The People Connect page plays a crucial role in facilitating connections between students and fostering a supportive community.
 
       Features:
@@ -45,20 +46,20 @@ People Connect Page - Building Relationships
       Profiles: Each user has a profile page where they can share information about themselves, such as their academic interests, hobbies, or skills. This helps others get to know them better and build connections.
       Messaging: The platform offers a secure messaging system for students to chat with each other privately. This allows them to connect with mentors, seek advice from peers, or collaborate on projects.
       Connection Recommendations: The website can utilize algorithms to recommend connections between students based on shared interests, fields of study, or participation in the same clubs or events.
-      ![alt text](images/People.png)
+
 
 Saved Posts:
-
+![alt text](<images/Saved post.png>)
     Users can save posts they find interesting or valuable for future reference. This could include:
     Informational posts with study resources or scholarship opportunities.
     Event announcements for activities they're interested in attending.
     Club discussions relevant to their academic or extracurricular interests.
     Saved posts can be categorized or tagged for easier organization and retrieval.
 
-    ![alt text](<images/Saved post.png>)
+
 
 Creating Posts:
-
+![alt text](<images/Create post.png>)
     Users can create new posts to share information, initiate discussions, or announce events.
     The platform should offer a user-friendly interface for creating posts, allowing users to:
     Choose the type of content (text, image, video, or link).
@@ -66,4 +67,4 @@ Creating Posts:
     Include relevant tags or categories to improve discoverability.
     Mention other users or clubs in the post if applicable.
 
-    ![alt text](<images/Create post.png>)
+
