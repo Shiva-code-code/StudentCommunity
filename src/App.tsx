@@ -7,7 +7,7 @@ import Home from './root/pages/Home';
 import SignupForm from './auth/forms/SignupForm';
 import AuthLayout from './auth/AuthLayout';
 import RootLauout from './root/RootLayout';
-import { Toaster } from "@/components/ui/toaster"
+import { Toaster } from './components/ui/toaster';
 import Explore from './root/pages/Explore';
 import Saved from './root/pages/Saved';
 import AllUsers from './root/pages/AllUsers';

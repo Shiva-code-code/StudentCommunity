@@ -5,6 +5,7 @@ import { Input } from "@/components/ui/input";
 import useDebounce from "@/hooks/useDebounce";
 import { GridPostList, Loader } from "@/components/shared";
 import { useGetPosts, useSearchPosts } from "@/lib/react-query/queriesAndMutations";
+import { Models } from "appwrite";
 
 export type SearchResultProps = {
   isSearchFetching: boolean;
@@ -46,7 +47,7 @@ const Explore = () => {
 
   const shouldShowSearchResults = searchValue !== "";
   const shouldShowPosts = !shouldShowSearchResults && 
-    posts.pages.every((item) => item.documents.length === 0);
+    posts.pages.every((item: { documents: string | any[]; }) => item.documents.length === 0);
 
   return (
     <div className="explore-container">
@@ -95,7 +96,7 @@ const Explore = () => {
         ) : shouldShowPosts ? (
           <p className="text-light-4 mt-10 text-center w-full">End of posts</p>
         ) : (
-          posts.pages.map((item, index) => (
+          posts.pages.map((item: { documents: Models.Document[]; }, index: any) => (
             <GridPostList key={`page-${index}`} posts={item.documents} />
           ))
         )}

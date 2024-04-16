@@ -1,26 +1,32 @@
-import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
-import { QUERY_KEYS } from "@/lib/react-query/queryKeys";
-import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
-import { 
-  createUserAccount, 
-  signInAccount, 
-  getCurrentUser, 
-  signOutAccount, 
-  getUsers, 
-  createPost, 
-  getPostById, 
-  updatePost, 
-  getUserPosts, 
-  deletePost, 
-  likePost, 
-  getUserById, 
-  updateUser, 
-  getRecentPosts, 
-  searchPosts, 
-  savePost, 
-  deleteSavedPost, 
-} from "@/lib/appwrite/api";
+import {
+  useQuery,
+  useMutation,
+  useQueryClient,
+  useInfiniteQuery,
+} from "@tanstack/react-query";
 
+import { QUERY_KEYS } from "@/lib/react-query/queryKeys";
+import {
+  createUserAccount,
+  signInAccount,
+  getCurrentUser,
+  signOutAccount,
+  getUsers,
+  createPost,
+  getPostById,
+  updatePost,
+  getUserPosts,
+  deletePost,
+  likePost,
+  getUserById,
+  updateUser,
+  getRecentPosts,
+  getInfinitePosts,
+  searchPosts,
+  savePost,
+  deleteSavedPost,
+} from "@/lib/appwrite/api";
+import { INewPost, INewUser, IUpdatePost, IUpdateUser } from "@/types";
 
 // ============================================================
 // AUTH QUERIES
@@ -34,7 +40,8 @@ export const useCreateUserAccount = () => {
 
 export const useSignInAccount = () => {
   return useMutation({
-    mutationFn: (user: { email: string; password: string }) => signInAccount(user),
+    mutationFn: (user: { email: string; password: string }) =>
+      signInAccount(user),
   });
 };
 
@@ -48,7 +55,23 @@ export const useSignOutAccount = () => {
 // POST QUERIES
 // ============================================================
 
+export const useGetPosts = () => {
+  return useInfiniteQuery({
+    queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
+    queryFn: getInfinitePosts as any,
+    getNextPageParam: (lastPage: any) => {
+      // If there's no data, there are no more pages.
+      if (lastPage && lastPage.documents.length === 0) {
+        return null;
+      }
 
+      // Use the $id of the last document as the cursor.
+      const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
+      return lastId;
+    },
+    initialPageParam: null, // Add this line
+  });
+};
 
 export const useSearchPosts = (searchTerm: string) => {
   return useQuery({
@@ -77,12 +100,11 @@ export const useCreatePost = () => {
   });
 };
 
-export const useGetPostById = (postId: string) => {
+export const useGetPostById = (postId?: string) => {
   return useQuery({
     queryKey: [QUERY_KEYS.GET_POST_BY_ID, postId],
     queryFn: () => getPostById(postId),
     enabled: !!postId,
-    
   });
 };
 
@@ -93,19 +115,6 @@ export const useGetUserPosts = (userId?: string) => {
     enabled: !!userId,
   });
 };
-
-// export const useGetPosts = () => {
-//   return useInfiniteQuery({
-//     queryKey: [QUERY_KEYS.GET_INFINITE_POSTS],
-//     queryFn: getInfinitePosts,
-//     getNextPageParam: (lastPage) => {
-//       if(lastPage && lastPage.documents.length ===0 ) return null;
-
-//       const lastId = lastPage.documents[lastPage.documents.length - 1].$id;
-//       return lastId;
-//     }
-//   });
-// };
 
 export const useUpdatePost = () => {
   const queryClient = useQueryClient();
@@ -122,7 +131,7 @@ export const useUpdatePost = () => {
 export const useDeletePost = () => {
   const queryClient = useQueryClient();
   return useMutation({
-    mutationFn: ({ postId, imageId }: { postId: string; imageId: string }) =>
+    mutationFn: ({ postId, imageId }: { postId?: string; imageId: string }) =>
       deletePost(postId, imageId),
     onSuccess: () => {
       queryClient.invalidateQueries({
@@ -215,15 +224,12 @@ export const useGetUsers = (limit?: number) => {
 };
 
 export const useGetUserById = (userId: string) => {
-  console.log("userId:", userId);
   return useQuery({
     queryKey: [QUERY_KEYS.GET_USER_BY_ID, userId],
     queryFn: () => getUserById(userId),
     enabled: !!userId,
   });
 };
-
-
 
 export const useUpdateUser = () => {
   const queryClient = useQueryClient();

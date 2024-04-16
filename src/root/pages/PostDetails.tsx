@@ -82,7 +82,7 @@
 
 import { useParams, Link, useNavigate } from "react-router-dom";
 
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/ui/button.tsx";
 import { Loader } from "@/components/shared";
 import { GridPostList, PostStats } from "@/components/shared";
 
