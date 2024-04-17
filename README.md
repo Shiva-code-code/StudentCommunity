@@ -5,7 +5,7 @@
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
 5. 🕸️ [Snippets](#snippets)
-6. 🔗 [Student Community Website](#Student Community Website)
+6. 🔗 [Student Community Website](#Student-Community-Website)
 
 ## <a name="introduction">🤖 Introduction</a>
 
