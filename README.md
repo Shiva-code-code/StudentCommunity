@@ -5,7 +5,7 @@
 3. 🔋 [Features](#features)
 4. 🤸 [Quick Start](#quick-start)
 5. 🕸️ [Snippets](#snippets)
-6. 🔗 [Student Community Website](#Student-Community-Website)
+6. 🔗 [Student Community Website](#student)
 
 ## <a name="introduction">🤖 Introduction</a>
 
@@ -746,7 +746,7 @@ export const checkIsLiked = (likeList: string[], userId: string) => {
 
 
 
-## <a name="Student-Community-Website">🤖 Student Community Website</a>
+## <a name="student">🤖 Student Community Website</a>
 
 This is a student community website designed to foster a supportive and collaborative environment for students to learn, grow, and achieve their academic goals. The platform offers a variety of features to connect students with each other, senior mentors, and valuable resources.
 
