@@ -14,6 +14,7 @@ Explore social media with this user-friendly platform that has a nice look and l
 
 
 ## <a name="tech-stack">⚙️ Tech Stack</a>
+
 - React.js
 - Appwrite
 - React Query
@@ -23,6 +24,8 @@ Explore social media with this user-friendly platform that has a nice look and l
 
 
 ## <a name="quick-start">🤸 Quick Start</a>
+
+Follow these steps to set up the project locally on your machine.
 **Prerequisites**
 
 Make sure you have the following installed on your machine:
@@ -60,9 +63,15 @@ VITE_APPWRITE_POST_COLLECTION_ID=
 VITE_APPWRITE_SAVES_COLLECTION_ID=
 ```
 
+**Running the Project**
+
+```bash
+npm start or npm run dev
+```
+
 
 - ## <a name="features">🔋 Features</a>
- Follow these steps to set up the project locally on your machine.
+ 
 
  Mentorship Program: 
       Students can connect with senior students for guidance, advice, and support. This program can help them navigate academic challenges, explore career options, and develop important skills.
@@ -84,11 +93,6 @@ User Authentication
 
 Replace the placeholder values with your actual Appwrite credentials. You can obtain these credentials by signing up on the [Appwrite website](https://appwrite.io/).
 
-**Running the Project**
-
-```bash
-npm start
-```
 
 ## <a name="snippets">🕸️ Snippets</a>
 
