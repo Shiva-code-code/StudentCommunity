@@ -746,16 +746,11 @@ export const checkIsLiked = (likeList: string[], userId: string) => {
 
 
 
-
-**Student Community Website**
+## <a name="Student-Community-Website">🤖 Student Community Website</a>
 
 This is a student community website designed to foster a supportive and collaborative environment for students to learn, grow, and achieve their academic goals. The platform offers a variety of features to connect students with each other, senior mentors, and valuable resources.
 
 **Features:**
-
-
-
-
 
 Signup:
 ![alt text](<images/Screenshot 2024-04-10 211929.png>)
