@@ -757,9 +757,6 @@ This is a student community website designed to foster a supportive and collabor
 
 
 
-Login:
-![alt text](<Screenshot 2024-04-10 210816.png>)
-    Users can enter their registered email address and password to access the website.
 
 Signup:
 ![alt text](<images/Screenshot 2024-04-10 211929.png>)
